@@ -67,7 +67,7 @@ PVOID Memory::MapPhysToLin(tagPhysStruct & PhysStruct)
 {
 	DWORD ret;
 	if (!m_Driver->GetHandle())
-		return false;
+		return nullptr;
 
 	if (!DeviceIoControl(m_Driver->GetHandle(), IOCTL_WINIO_MAPPHYSTOLIN, &PhysStruct,
 	sizeof(tagPhysStruct), &PhysStruct, sizeof(tagPhysStruct), &ret, nullptr))
